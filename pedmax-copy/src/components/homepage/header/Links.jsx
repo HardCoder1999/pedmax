@@ -22,9 +22,9 @@ const Links = () => {
         <Grid item>
           <NavLink
             to="/"
-            style={{ textDecoration: "none", paddingLeft: 15, color: "white" }}
+            style={{ paddingLeft: 15, color: "white" }}
           >
-            <img id="" alt="" src={home} class="" width="" height="" />
+            <img id="" alt="" src={home} width="" height="" />
             Home
           </NavLink>
         </Grid>
@@ -32,9 +32,9 @@ const Links = () => {
         <Grid item>
           <NavLink
             to="/sports"
-            style={{ textDecoration: "none", paddingLeft: 15, color: "white" }}
+            style={{ paddingLeft: 15, color: "white" }}
           >
-            <img id="" alt="" src={sports} class="" width="" height="" />
+            <img id="" alt="" src={sports} width="" height="" />
             Sports
           </NavLink>
         </Grid>
@@ -42,9 +42,9 @@ const Links = () => {
         <Grid item>
           <NavLink
             to="/live-bets"
-            style={{ textDecoration: "none", paddingLeft: 15, color: "white" }}
+            style={{ paddingLeft: 15, color: "white" }}
           >
-            <img id="" alt="" src={bets} class="" width="" height="" />
+            <img id="" alt="" src={bets} width="" height="" />
             Live Bets
           </NavLink>
         </Grid>

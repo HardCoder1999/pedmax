@@ -10,7 +10,7 @@ const SearchBar  = ()=>{
           <input
             type="search"
             placeholder="Search"
-            autocomplete="off"
+            autoComplete="off"
             value={value}
             onChange={(event)=>{setValue(event.target.value)}}
           />

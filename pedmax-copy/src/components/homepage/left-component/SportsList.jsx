@@ -24,20 +24,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SportsList = () => {
+const SportsList = (props) => {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <Grid item>
-        <h3 className={"titles"}>Sports</h3>
         <Accordion>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography className={classes.heading}>Football</Typography>
+            <Typography className={classes.heading}>
+              <img className={"sport-icons"} alt="" src={props.imageUrl} />
+              &nbsp; &nbsp; &nbsp; &nbsp; {props.sportName}
+            </Typography>
           </AccordionSummary>
 
           <AccordionDetails>

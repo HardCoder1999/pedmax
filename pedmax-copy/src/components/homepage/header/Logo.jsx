@@ -18,7 +18,7 @@ const LiveBets = () => {
         className="text-left"
       >
         <NavLink to="/">
-          <img id="" alt="" src={logo} class="" width="" height="" />
+          <img id="" alt="" src={logo} width="" height="" />
         </NavLink>
       </Grid>
     </>
