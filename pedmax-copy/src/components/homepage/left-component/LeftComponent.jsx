@@ -20,7 +20,7 @@ const LeftComponent = () => {
         <Favourites />
         <h3 className={"titles"}>Sports</h3>
         {
-          response.loading ? (<p>Loading</p>):
+          response.loading ? (<p>Loading... Please Wait</p>):
           (
           <>
         {response.data.sports.map((t) => {
