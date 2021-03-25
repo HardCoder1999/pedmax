@@ -25,9 +25,25 @@ input[type=text], input[type=password] {
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
-  
+}
+
+input[type=search] {
+  border-radius: 15px;
+  padding: 12px 20px;
+  margin: 20px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  color: #000000;
+}
+
+a {
+  text-decoration: none;
 }
 
 label{
   color: #000000;
+}
+
+.titles{
+  color: #F9623E;
 }
