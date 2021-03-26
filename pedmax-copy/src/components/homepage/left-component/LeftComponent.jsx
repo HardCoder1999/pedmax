@@ -1,36 +1,45 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Grid from "@material-ui/core/Grid";
 import SearchBar from "./SearchBar";
 import Favourites from "./Favourites";
 import SportsList from "./SportsList";
-import useFetch from "../../../hooks/useFetch";
+import { fetchListOfSports } from "../../../redux/actions/listOfSportsAction";
+import { useDispatch, useSelector } from "react-redux";
 
 // Variables
-const sportsListUrl = "http://3.12.44.37/api/v1/sports";
 
 const LeftComponent = () => {
-  const response = useFetch(sportsListUrl);
-  // console.log(response.data);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchListOfSports());
+  }, [dispatch]);
+
+  const sportsLoading = useSelector((state) => state.list_of_sports.loading);
+  const sportsData = useSelector((state) => state.list_of_sports.data);
 
   return (
     <>
       <Grid container xs={2} direction="column">
-        {/* <h1>This is Left Component Page.</h1> */}
         <SearchBar />
         <Favourites />
         <h3 className={"titles"}>Sports</h3>
-        {
-          response.loading ? (<p>Loading... Please Wait</p>):
-          (
+        {sportsLoading ? (
+          <p>Loading... Please Wait</p>
+        ) : (
           <>
-        {response.data.sports.map((t) => {
-          return (
-            <div key={t.id}>
-              <SportsList imageUrl={t.image_url} sportName={t.name} />
-            </div>
-          );
-        })}
-        </>
+            {sportsData.map((t) => {
+              return (
+                <div key={t.id}>
+                  <SportsList
+                    sport_id={t.id}
+                    imageUrl={t.image_url}
+                    sportName={t.name}
+                  />
+                </div>
+              );
+            })}
+          </>
         )}
       </Grid>
     </>

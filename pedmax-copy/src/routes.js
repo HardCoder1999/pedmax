@@ -1,7 +1,7 @@
 import { Switch, Route } from "react-router-dom";
 import Sports from "./components/homepage/middle-component/Sports";
 import LiveBets from "./components/homepage/middle-component/LiveBets";
-import Homepage from './components/homepage/middle-component/Homepage';
+import Homepage from "./components/homepage/middle-component/Homepage";
 
 const CreatingRoutes = () => {
   return (

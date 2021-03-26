@@ -43,19 +43,7 @@ const SportsList = (props) => {
           </AccordionSummary>
 
           <AccordionDetails>
-            <Accordion>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel2a-content"
-                id="panel2a-header"
-              >
-                <Typography className={classes.heading}>Countries</Typography>
-              </AccordionSummary>
-
-              <AccordionDetails>
-                <Typography>Sports</Typography>
-              </AccordionDetails>
-            </Accordion>
+            {/* Something i will write here  */}
           </AccordionDetails>
         </Accordion>
       </Grid>
