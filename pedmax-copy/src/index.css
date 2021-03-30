@@ -56,3 +56,16 @@ label{
   width: 20px;
   height: 20px;
 }
+
+.img-div{
+  margin-left: 15px;
+  padding-top: 20px;
+  width: 815px;
+  height: 200px;
+}
+
+.status-titles{
+  color: #ffffff;
+  text-align: left;
+  margin-left: -100px;
+}

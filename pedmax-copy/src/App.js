@@ -16,7 +16,7 @@ function App() {
         <LeftComponent />
         <Grid container direction="column" alignItems="center" xs={8}>
           <Grid item>
-            <img alt="Refresh" src={banner} width="400px" />
+            <img alt="Refresh" src={banner} className={"img-div"}/>
           </Grid>
           <CreatingRoutes />
         </Grid>

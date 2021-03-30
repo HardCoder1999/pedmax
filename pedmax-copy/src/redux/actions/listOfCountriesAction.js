@@ -4,11 +4,10 @@ const requestListOfCountries = () => {
   };
 };
 
-const requestListOfCountriesSuccess = (data, id) => {
+const requestListOfCountriesSuccess = (data) => {
   return {
     type: "LIST_OF_COUNTRIES_SUCCEEDED",
     data: data,
-    id: id,
   };
 };
 

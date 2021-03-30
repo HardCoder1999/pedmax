@@ -4,23 +4,23 @@ const initialState = {
   data: [],
 };
 
-const listOfCountriesReducer = (state = initialState, action) => {
+const listOfTournamentsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "LIST_OF_COUNTRIES":
+    case "LIST_OF_TOURNAMENTS":
       return {
         loading: true,
         data: [],
         error: false,
       };
 
-    case "LIST_OF_COUNTRIES_SUCCEEDED":
+    case "LIST_OF_TOURNAMENTS_SUCCEEDED":
       return {
         loading: false,
         data: action.data,
         error: false,
       };
 
-    case "LIST_OF_COUNTRIES_FAILED":
+    case "LIST_OF_TOURNAMENTS_FAILED":
       return {
         loading: false,
         data: [],
@@ -32,4 +32,4 @@ const listOfCountriesReducer = (state = initialState, action) => {
   }
 };
 
-export default listOfCountriesReducer;
+export default listOfTournamentsReducer;
