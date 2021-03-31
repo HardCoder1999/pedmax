@@ -6,17 +6,23 @@ import {
   requestListOfUpcomingMatchesError,
 } from "../actions/listOfUpcomingMatchesAction";
 
-const upcomingMatchesListUrl = "https://api.pedmax.com/api/v1/matches?scope=upcoming";
+const upcomingMatchesListUrl =
+  "https://api.pedmax.com/api/v1/matches?scope=upcoming&per_page=4";
 
 function* watchListOfUpcomingMatches() {
-  yield takeEvery("FETCH_LIST_OF_UPCOMING_MATCHES", fetchListOfUpcomingMatchesAsync);
+  yield takeEvery(
+    "FETCH_LIST_OF_UPCOMING_MATCHES",
+    fetchListOfUpcomingMatchesAsync
+  );
 }
 
-function* fetchListOfUpcomingMatchesAsync() {
+function* fetchListOfUpcomingMatchesAsync(action) {
   try {
     yield put(requestListOfUpcomingMatches());
     const data = yield call(() => {
-      return axios.get(upcomingMatchesListUrl).then((res) => res.data);
+      return axios
+        .get(`${upcomingMatchesListUrl}&sport_id=${action.sport_id}`)
+        .then((res) => res.data);
     });
     yield put(requestListOfUpcomingMatchesSuccess(data));
   } catch (error) {

@@ -8,7 +8,6 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchListOfTournaments } from "../../../redux/actions/listOfTournamentsAction";
-//We can remove this line in Futur
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -54,6 +53,7 @@ const CountriesList = (props) => {
             if(isOpen) dispatch(fetchListOfTournaments(props.sport_id, props.country_id));
           }}
         >
+          
           <Typography className={classes.heading}>{props.name}</Typography>
         </AccordionSummary>
 
@@ -67,7 +67,7 @@ const CountriesList = (props) => {
                   <div key={t.id}>
                     <Typography>{t.title}</Typography>
                   </div>
-                );
+                )
               })}
             </>
           )}

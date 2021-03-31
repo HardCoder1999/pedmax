@@ -37,7 +37,7 @@ const LeftComponent = () => {
                     sportName={t.name}
                   />
                 </div>
-              );
+              )
             })}
           </>
         )}

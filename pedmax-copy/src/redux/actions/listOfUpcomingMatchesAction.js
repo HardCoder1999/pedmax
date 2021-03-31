@@ -17,8 +17,11 @@ const requestListOfUpcomingMatchesError = () => {
   };
 };
 
-const fetchListOfUpcomingMatches = () => {
-  return { type: "FETCH_LIST_OF_UPCOMING_MATCHES" };
+const fetchListOfUpcomingMatches = (sport_id) => {
+  return {
+    type: "FETCH_LIST_OF_UPCOMING_MATCHES",
+    sport_id: sport_id,
+  };
 };
 
 export {

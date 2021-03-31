@@ -9,6 +9,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { fetchListOfCountries } from "../../../redux/actions/listOfCountriesAction";
 import { useDispatch, useSelector } from "react-redux";
 import CountriesList from "./CountriesList";
+import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -52,20 +53,25 @@ const SportsList = (props) => {
             onClick={() => {
               setOpen(!isOpen);
               if (isOpen) dispatch(fetchListOfCountries(props.sport_id));
-              console.log(props.sport_id);
-              
             }}
           >
-            <Typography className={classes.heading}>
-              <img className={"sport-icons"} alt="" src={props.imageUrl} />
-              &nbsp; &nbsp; &nbsp; &nbsp; {props.sportName}
-            </Typography>
+            <NavLink
+              to={{
+                pathname: "/sports/"+props.sport_id,
+                Props: { sportName: props.sportName },
+              }}
+            >
+              <Typography className={classes.heading}>
+                <img className={"sport-icons"} alt="" src={props.imageUrl} />
+                &nbsp; &nbsp; &nbsp; &nbsp; {props.sportName}
+              </Typography>
+            </NavLink>
           </AccordionSummary>
 
           <AccordionDetails className={classes.details}>
             {countriesLoading ? (
               <p>Loading... Please Wait</p>
-            ) : (props.sport_id) ? (
+            ) : (
               <>
                 {countriesData.map((t) => {
                   return (
@@ -75,12 +81,13 @@ const SportsList = (props) => {
                         sport_id={props.sport_id}
                         country_id={t.id}
                       ></CountriesList>
-                      {console.log("hi")}
+                      {/* {console.log("hi")} */}
                     </div>
                   );
                 })}
               </>
-            ) : <> </>}
+            )}
+            ;
           </AccordionDetails>
         </Accordion>
       </Grid>

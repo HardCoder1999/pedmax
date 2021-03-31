@@ -9,6 +9,7 @@ import BetArea from './BetArea';
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
+    // marginLeft: "-35px",
     flexDirection: "column",
     alignItems: "center",
     "& > *": {

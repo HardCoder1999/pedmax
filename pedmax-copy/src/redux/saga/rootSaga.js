@@ -4,6 +4,7 @@ import watchListOfCountries from "./listOfCountriesSaga";
 import watchListOfTournaments from "./listOfTournamentsSaga";
 import watchListOfUpcomingMatches from "./listOfUpcomingMatchesSaga";
 import watchListOfLiveMatches from "./listOfLiveMatchesSaga";
+import watchUpcomingMatches from './upcomingMatchesSaga';
 
 function* rootSaga() {
   yield all([
@@ -12,6 +13,7 @@ function* rootSaga() {
     watchListOfTournaments(),
     watchListOfLiveMatches(),
     watchListOfUpcomingMatches(),
+    watchUpcomingMatches(),
   ]);
 }
 
