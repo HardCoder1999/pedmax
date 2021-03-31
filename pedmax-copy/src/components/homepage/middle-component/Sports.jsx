@@ -1,8 +1,6 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import UpcomingMatches from "./UpcomingMatches";
-// import UpcomingAccordion from "./UpcomingAccordion"
-// import { useLocation } from "react-router-dom"
 
 import SelectedSport from "./SelectedSport";
 

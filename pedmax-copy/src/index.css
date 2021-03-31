@@ -74,3 +74,8 @@ label {
 .sport-title {
   text-align: left;
 }
+
+.tournament-names {
+  text-align: left;
+  font-size: 12px;
+}

@@ -6,8 +6,7 @@ import {
   requestListOfUpcomingMatchesError,
 } from "../actions/listOfUpcomingMatchesAction";
 
-const upcomingMatchesListUrl =
-  "https://api.pedmax.com/api/v1/matches?scope=upcoming&per_page=4";
+import { upcomingMatchesListUrl } from "../../utils/urls";
 
 function* watchListOfUpcomingMatches() {
   yield takeEvery(

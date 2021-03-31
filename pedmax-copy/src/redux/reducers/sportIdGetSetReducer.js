@@ -1,6 +1,6 @@
 const initialState = {
-  live_sport_id: 4,
-  upcoming_sport_id: 4,
+  live_sport_id: 6,
+  upcoming_sport_id: 6,
 };
 
 const sportIdGetSetReducer = (state = initialState, action) => {

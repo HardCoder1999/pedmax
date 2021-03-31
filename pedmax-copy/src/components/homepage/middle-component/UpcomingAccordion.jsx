@@ -1,57 +1,51 @@
 import React, { useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
-import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Divider from "@material-ui/core/Divider";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableRow from "@material-ui/core/TableRow";
 import Button from "@material-ui/core/Button";
-import Box from "@material-ui/core/Box";
+import TableHead from "@material-ui/core/TableHead";
 import { groupBy, assign1x2 } from "../../../utils/utilityFunctions";
 import { fetchListOfUpcomingMatches } from "../../../redux/actions/listOfUpcomingMatchesAction";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
+
+const StyledTableCell = withStyles((theme) => ({
+  root: {
+    borderBottom: "none",
+  },
+
+  head: {
+    backgroundColor: theme.palette.common.white,
+    fontWeight: theme.typography.fontWeightBold,
+    fontSize: theme.typography.pxToRem(15),
+    textAlign: "left",
+    color: theme.palette.common.black,
+  },
+  body: {
+    fontSize: 14,
+  },
+}))(TableCell);
+
+const StyledTableRow = withStyles((theme) => ({
+  root: {
+    "&:nth-of-type(odd)": {
+      backgroundColor: theme.palette.action.hover,
+    },
+  },
+}))(TableRow);
 
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "135%",
     paddingTop: "20px",
     marginLeft: "-100px",
-    // paddingRight: "px",
-  },
-  heading: {
-    fontSize: theme.typography.pxToRem(13),
-    fontWeight: theme.typography.fontWeightBold,
-    width: "40%",
-    textAlign: "left",
-  },
-
-  head: {
-    // marginLeft: "10px",
-    fontWeight: theme.typography.fontWeightBold,
-    // paddingRight:
-  },
-
-  head3: {
-    marginLeft: "150px",
-    fontWeight: theme.typography.fontWeightBold,
-    // paddingRight:
-  },
-
-  heading1: {
-    width: "130%",
-    backgroundColor: "grey.300",
-  },
-
-  head2: {
-    width: "40%",
-    textAlign: "left",
-    fontSize: theme.typography.pxToRem(12),
-  },
-
-  head1: {
-    marginLeft: "90px",
   },
 }));
 
@@ -73,86 +67,120 @@ const UpcomingAccordion = (props) => {
 
   let modifiedData = groupBy(upcomingSportData);
 
+
   return (
     <>
       <div className={classes.root}>
         {dataLoading ? (
           <p>Loading... Please Wait</p>
         ) : (
-          <>
+          <Table>
             {Object.keys(modifiedData).map((t) => {
               return (
-                <div key={t}>
+                <>
                   <Accordion defaultExpanded={true}>
                     <AccordionSummary
                       expandIcon={<ExpandMoreIcon />}
                       aria-controls="panel1a-content"
                       id="panel1a-header"
                     >
-                      <NavLink
-                        to={{
-                          pathname: "/sports/" + props.sport_id + "/" + t,
-                          Props: { tournamentName: modifiedData[t].title },
-                        }}
-                      >
-                        <Typography className={classes.heading}>
-                          {modifiedData[t].title}
-                        </Typography>
-                      </NavLink>
-                      <Typography className={classes.head}> 1 </Typography>
-                      <Typography className={classes.head3}> X </Typography>
-                      <Typography className={classes.head3}> 2 </Typography>
-                      <Typography className={classes.head3}> </Typography>
+                      <TableHead key={t}>
+                        <StyledTableRow>
+                          <StyledTableCell></StyledTableCell>
+
+                          <StyledTableCell style={{ color: "black" }}>
+                            <NavLink
+                              to={`/sports/${props.sport_id}/${modifiedData[t].id}`}
+                            >
+                              {modifiedData[t].title}
+                            </NavLink>
+                          </StyledTableCell>
+
+                          <StyledTableCell
+                            align="right"
+                            style={{ color: "black" }}
+                          >
+                            1
+                          </StyledTableCell>
+
+                          <StyledTableCell
+                            align="right"
+                            style={{ color: "black" }}
+                          >
+                            X
+                          </StyledTableCell>
+
+                          <StyledTableCell
+                            align="right"
+                            style={{ color: "black" }}
+                          >
+                            2
+                          </StyledTableCell>
+                        </StyledTableRow>
+                      </TableHead>
                     </AccordionSummary>
                     <Divider />
                     <AccordionDetails>
-                      {modifiedData[t].data.map((x, index) => {
-                        let value = assign1x2(x.market);
-                        return (
-                          <>
-                            <Box
-                              component="div"
-                              display="flex"
-                              flexDirection="row"
-                              p={1}
-                              bgcolor="grey.300"
-                              className={classes.heading1}
-                              key={index}
-                            >
-                              <Box p={1} className={classes.head2}>
-                                {" "}
-                                {x.name}
-                              </Box>
-                              <Box p={1} flexGrow={1} className={classes.head1}>
-                                <Button variant="contained" color="default">
-                                  {value["1"]}
-                                </Button>
-                              </Box>
-                              <Box p={1} flexGrow={1} className={classes.head1}>
-                                <Button variant="contained" color="default">
-                                  {value["X"]}
-                                </Button>
-                              </Box>
-                              <Box p={1} flexGrow={1} className={classes.head1}>
-                                <Button variant="contained" color="default">
-                                  {value["2"]}
-                                </Button>
-                              </Box>
-                              <Box p={1} flexGrow={1} className={classes.head1}>
-                                <Button variant="contained" color="default">
+                      <TableBody>
+                        {modifiedData[t].data.map((x, index) => {
+                          let value = assign1x2(x.market);
+                          return (
+                            <>
+                              <StyledTableRow
+                                style={{ backgroundColor: "white" }}
+                              >
+                                <StyledTableCell
+                                  style={{ color: "black" }}
+                                  component="th"
+                                  scope="row"
+                                >
+                                  {x.name}
+                                </StyledTableCell>
+
+                                <StyledTableCell
+                                  style={{ color: "black" }}
+                                  align="right"
+                                >
+                                  <Button variant="contained" color="default">
+                                    {value["1"]}
+                                  </Button>
+                                </StyledTableCell>
+
+                                <StyledTableCell
+                                  style={{ color: "black" }}
+                                  align="right"
+                                >
+                                  <Button variant="contained" color="default">
+                                    {value["X"]}
+                                  </Button>
+                                </StyledTableCell>
+
+                                <StyledTableCell
+                                  style={{ color: "black" }}
+                                  align="right"
+                                >
+                                  <Button variant="contained" color="default">
+                                    {value["2"]}
+                                  </Button>
+                                </StyledTableCell>
+
+                                <StyledTableCell
+                                  style={{ color: "black" }}
+                                  align="right"
+                                >
                                   {x.market_counts}+
-                                </Button>
-                              </Box>
-                            </Box>
-                          </>
-                        );
-                      })}
+                                </StyledTableCell>
+                              </StyledTableRow>
+                            </>
+                          );
+                        })}
+                      </TableBody>
                     </AccordionDetails>
                   </Accordion>
-                </div>
+                </>
               );
             })}
-          </>
+          </Table>
         )}
       </div>
     </>

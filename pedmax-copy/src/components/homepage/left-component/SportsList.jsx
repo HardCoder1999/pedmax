@@ -35,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
 const SportsList = (props) => {
   const dispatch = useDispatch();
   const [isOpen, setOpen] = useState(true);
+  const [expanded, setExpanded] = useState(0);
   const countriesLoading = useSelector(
     (state) => state.list_of_countries.loading
   );
@@ -42,10 +43,17 @@ const SportsList = (props) => {
 
   const classes = useStyles();
 
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+
   return (
     <div className={classes.root}>
       <Grid item>
-        <Accordion>
+        <Accordion
+          expanded={expanded === props.sport_id}
+          onChange={handleChange(props.sport_id)}
+        >
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1a-content"
@@ -55,14 +63,9 @@ const SportsList = (props) => {
               if (isOpen) dispatch(fetchListOfCountries(props.sport_id));
             }}
           >
-            <NavLink
-              to={{
-                pathname: "/sports/"+props.sport_id,
-                Props: { sportName: props.sportName },
-              }}
-            >
+            <NavLink to={`/sports/${props.sport_id}`}>
               <Typography className={classes.heading}>
-                <img className={"sport-icons"} alt="" src={props.imageUrl} />
+                {/* <img className={"sport-icons"} alt="" src={props.imageUrl} /> */}
                 &nbsp; &nbsp; &nbsp; &nbsp; {props.sportName}
               </Typography>
             </NavLink>
@@ -87,7 +90,6 @@ const SportsList = (props) => {
                 })}
               </>
             )}
-            ;
           </AccordionDetails>
         </Accordion>
       </Grid>

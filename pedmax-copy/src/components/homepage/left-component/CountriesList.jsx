@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-// import Grid from "@material-ui/core/Grid";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
@@ -8,6 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchListOfTournaments } from "../../../redux/actions/listOfTournamentsAction";
+import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,10 +50,12 @@ const CountriesList = (props) => {
           id="panel2a-header"
           onClick={() => {
             setOpen(!isOpen);
-            if(isOpen) dispatch(fetchListOfTournaments(props.sport_id, props.country_id));
+            if (isOpen)
+              dispatch(
+                fetchListOfTournaments(props.sport_id, props.country_id)
+              );
           }}
         >
-          
           <Typography className={classes.heading}>{props.name}</Typography>
         </AccordionSummary>
 
@@ -64,10 +66,12 @@ const CountriesList = (props) => {
             <>
               {tournamentsData.map((t) => {
                 return (
-                  <div key={t.id}>
-                    <Typography>{t.title}</Typography>
-                  </div>
-                )
+                  <NavLink key={t.id} to={`/sports/${props.sport_id}/${t.id}`}>
+                    <div key={t.id}>
+                      <p className={"tournament-names"}>{t.title}</p>
+                    </div>
+                  </NavLink>
+                );
               })}
             </>
           )}

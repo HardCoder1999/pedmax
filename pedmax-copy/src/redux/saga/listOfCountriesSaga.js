@@ -6,7 +6,7 @@ import {
   requestListOfCountriesError,
 } from "../actions/listOfCountriesAction";
 
-const CountriesListUrl = "https://api.pedmax.com/api/v1/countries";
+import { countryListUrl } from '../../utils/urls';
 
 function* watchListOfCountries(action) {
   yield takeEvery("FETCH_LIST_OF_COUNTRIES", fetchListOfCountriesAsync);
@@ -17,7 +17,7 @@ function* fetchListOfCountriesAsync(action) {
     yield put(requestListOfCountries());
     const data = yield call(() => {
       return axios
-        .get(`${CountriesListUrl}?sport_id=${action.sport_id}`)
+        .get(`${countryListUrl}?sport_id=${action.sport_id}`)
         .then((res) => res.data.countries);
     });
     yield put(requestListOfCountriesSuccess(data));

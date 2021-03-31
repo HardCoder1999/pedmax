@@ -6,11 +6,11 @@ import {
   upcomingMatchesError,
 } from "../actions/upcomingMatchesAction";
 
-const tournamentUrl = "https://api.pedmax.com/api/v1/matches";
-const restUrl = "&markets=false&statistics=false"
+import { tournamentUrl, restTournamentUrl } from "../../utils/urls";
+
 
 function* watchUpcomingMatches(action) {
-  yield takeEvery("FETCH_LIST_OF_COUNTRIES", fetchUpcomingMatchesAsync);
+  yield takeEvery("FETCH_UPCOMING_MATCHES", fetchUpcomingMatchesAsync);
 }
 
 function* fetchUpcomingMatchesAsync(action) {
@@ -18,7 +18,7 @@ function* fetchUpcomingMatchesAsync(action) {
     yield put(upcomingMatches());
     const data = yield call(() => {
       return axios
-        .get(`${tournamentUrl}?tournament_id=${action.tournament_id}${restUrl}`)
+        .get(`${tournamentUrl}?tournament_id=${action.tournament_id}${restTournamentUrl}`)
         .then((res) => res.data.matches);
     });
     yield put(upcomingMatchesSuccess(data));

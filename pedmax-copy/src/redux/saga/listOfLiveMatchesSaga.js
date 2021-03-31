@@ -6,17 +6,17 @@ import {
   requestListOfLiveMatchesError,
 } from "../actions/listOfLiveMatchesAction";
 
-const liveMatchesListUrl = "https://api.pedmax.com/api/v1/matches?scope=live";
+import { liveMatchesListUrl } from "../../utils/urls";
 
 function* watchListOfLiveMatches() {
   yield takeEvery("FETCH_LIST_OF_LIVE_MATCHES", fetchListOfLiveMatchesAsync);
 }
 
-function* fetchListOfLiveMatchesAsync() {
+function* fetchListOfLiveMatchesAsync(action) {
   try {
     yield put(requestListOfLiveMatches());
     const data = yield call(() => {
-      return axios.get(liveMatchesListUrl).then((res) => res.data);
+      return axios.get(`${liveMatchesListUrl}&sport_id=${action.sport_id}`).then((res) => res.data);
     });
     yield put(requestListOfLiveMatchesSuccess(data));
   } catch (error) {

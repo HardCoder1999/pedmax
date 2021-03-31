@@ -1,6 +1,6 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
-import BetButtons from './BetButtons';
+import BetButtons from "./BetButtons";
 
 const RightComponent = () => {
   return (
