@@ -19,7 +19,6 @@ const LeftComponent = () => {
   const sportsData = useSelector((state) => state.list_of_sports.data);
 
   return (
-    <>
       <Grid container xs={2} direction="column">
         <SearchBar />
         <Favourites />
@@ -42,7 +41,6 @@ const LeftComponent = () => {
           </>
         )}
       </Grid>
-    </>
   );
 };
 

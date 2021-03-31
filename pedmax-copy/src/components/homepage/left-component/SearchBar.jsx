@@ -4,7 +4,6 @@ import Grid from "@material-ui/core/Grid";
 const SearchBar = () => {
   const [value, setValue] = useState("");
   return (
-    <>
       <Grid item>
         <input
           type="search"
@@ -16,7 +15,6 @@ const SearchBar = () => {
           }}
         />
       </Grid>
-    </>
   );
 };
 

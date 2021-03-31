@@ -11,11 +11,7 @@ const useStyles = makeStyles((theme) => ({
 
 const PersonalBets = () => {
   const classes = useStyles();
-  return (
-    <>
-      <p className={classes.root}>Please login to view</p>
-    </>
-  );
+  return <p className={classes.root}>Please login to view</p>;
 };
 
 export default PersonalBets;

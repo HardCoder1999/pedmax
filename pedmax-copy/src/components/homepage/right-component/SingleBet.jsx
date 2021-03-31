@@ -18,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
 const SingleBet = () => {
   const classes = useStyles();
   return (
-    <>
       <div className={classes.root}>
         <Box
           display="flex"
@@ -41,7 +40,6 @@ const SingleBet = () => {
         </p>
         <input size="4" /> <p>output</p>
       </div>
-    </>
   );
 };
 

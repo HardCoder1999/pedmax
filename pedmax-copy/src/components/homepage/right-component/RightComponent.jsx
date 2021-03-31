@@ -4,11 +4,9 @@ import BetButtons from "./BetButtons";
 
 const RightComponent = () => {
   return (
-    <>
       <Grid container xs={2} direction="column">
         <BetButtons />
       </Grid>
-    </>
   );
 };
 

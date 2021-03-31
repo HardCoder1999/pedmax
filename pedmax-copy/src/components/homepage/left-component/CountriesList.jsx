@@ -42,7 +42,6 @@ const CountriesList = (props) => {
 
   const classes = useStyles();
   return (
-    <>
       <Accordion key={props.sport_id}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -77,7 +76,6 @@ const CountriesList = (props) => {
           )}
         </AccordionDetails>
       </Accordion>
-    </>
   );
 };
 
