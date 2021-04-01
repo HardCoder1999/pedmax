@@ -4,7 +4,7 @@ import {
   requestListOfCountries,
   requestListOfCountriesSuccess,
   requestListOfCountriesError,
-} from "../actions/listOfCountriesAction";
+} from "../actions/countriesAction";
 
 import { countryListUrl } from '../../utils/urls';
 

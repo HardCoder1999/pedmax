@@ -41,49 +41,47 @@ const SelectedLeague = () => {
   const classes = useStyles();
 
   return (
-    <>
-      <Grid item xs={8} direction="column">
-        <h3 className={"status-titles"}>Live</h3>
-        <LiveMatches />
-        <h3 className={"status-titles"}>Upcoming</h3>
+    <Grid item xs={8} direction="column">
+      <h3 className={"status-titles"}>Live</h3>
+      <LiveMatches />
+      <h3 className={"status-titles"}>Upcoming</h3>
 
-        <TableContainer component={Paper} className={classes.root}>
-          <Table aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell>Upcoming</TableCell>
-                <TableCell align="right">1</TableCell>
-                <TableCell align="right">X&nbsp;</TableCell>
-                <TableCell align="right">2&nbsp;</TableCell>
-                <TableCell align="right">^&nbsp;</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {dataLoading ? (
-                <p>Loading... Please Wait</p>
-              ) : (
-                <>
-                  {upcomingData.map((t) => {
-                    let value = assign1x2(t.market);
-                    return (
-                      <TableRow key={t.id}>
-                        <TableCell component="th" scope="row">
-                          {t.name}
-                        </TableCell>
-                        <TableCell align="right">{value["1"]}</TableCell>
-                        <TableCell align="right">{value["X"]}</TableCell>
-                        <TableCell align="right">{value["2"]}</TableCell>
-                        <TableCell align="right">{t.market_counts}+</TableCell>
-                      </TableRow>
-                    );
-                  })}
-                </>
-              )}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </Grid>
-    </>
+      <TableContainer component={Paper} className={classes.root}>
+        <Table aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>Upcoming</TableCell>
+              <TableCell align="right">1</TableCell>
+              <TableCell align="right">X&nbsp;</TableCell>
+              <TableCell align="right">2&nbsp;</TableCell>
+              <TableCell align="right">^&nbsp;</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {dataLoading ? (
+              <p>Loading... Please Wait</p>
+            ) : (
+              <>
+                {upcomingData.map((t) => {
+                  let value = assign1x2(t.market);
+                  return (
+                    <TableRow key={t.id}>
+                      <TableCell component="th" scope="row">
+                        {t.name}
+                      </TableCell>
+                      <TableCell align="right">{value["1"]}</TableCell>
+                      <TableCell align="right">{value["X"]}</TableCell>
+                      <TableCell align="right">{value["2"]}</TableCell>
+                      <TableCell align="right">{t.market_counts}+</TableCell>
+                    </TableRow>
+                  );
+                })}
+              </>
+            )}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Grid>
   );
 };
 

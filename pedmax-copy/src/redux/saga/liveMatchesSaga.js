@@ -4,7 +4,7 @@ import {
   requestListOfLiveMatches,
   requestListOfLiveMatchesSuccess,
   requestListOfLiveMatchesError,
-} from "../actions/listOfLiveMatchesAction";
+} from "../actions/liveMatchesAction";
 
 import { liveMatchesListUrl } from "../../utils/urls";
 

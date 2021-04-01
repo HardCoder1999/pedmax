@@ -14,17 +14,15 @@ const customStyles = {
 
 const ModalRegisterForm = (props) => {
   return (
-    <>
-      <Modal
-        isOpen={props.isRegisterOpen}
-        onRequestClose={() => {
-          props.setRegisterOpen(false);
-        }}
-        style={customStyles}
-      >
-        <RegisterForm />
-      </Modal>
-    </>
+    <Modal
+      isOpen={props.isRegisterOpen}
+      onRequestClose={() => {
+        props.setRegisterOpen(false);
+      }}
+      style={customStyles}
+    >
+      <RegisterForm />
+    </Modal>
   );
 };
 

@@ -4,7 +4,7 @@ import {
   requestListOfSports,
   requestListOfSportsSuccess,
   requestListOfSportsError,
-} from "../actions/listOfSportsAction";
+} from "../actions/sportsAction";
 
 import { sportListUrl } from '../../utils/urls';
 

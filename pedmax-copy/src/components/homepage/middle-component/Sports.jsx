@@ -6,20 +6,18 @@ import SelectedSport from "./SelectedSport";
 
 const Sports = ({ match }) => {
   return (
-    <>
-      <Grid container xs={8} direction="column">
-        {!match.params.sport_id ? (
-          <>
-            <h3 className={"status-titles"}>Sports</h3>
-            <UpcomingMatches />
-          </>
-        ) : (
-          <>
-            <SelectedSport sport_id={match.params.sport_id} />
-          </>
-        )}
-      </Grid>
-    </>
+    <Grid container xs={8} direction="column">
+      {!match.params.sport_id ? (
+        <>
+          <h3 className={"status-titles"}>Sports</h3>
+          <UpcomingMatches />
+        </>
+      ) : (
+        <>
+          <SelectedSport sport_id={match.params.sport_id} />
+        </>
+      )}
+    </Grid>
   );
 };
 

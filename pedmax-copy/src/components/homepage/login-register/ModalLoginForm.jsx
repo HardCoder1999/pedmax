@@ -14,7 +14,6 @@ const customStyles = {
 
 const ModalLoginForm = (props) => {
   return (
-    <>
       <Modal
         isOpen={props.isLoginOpen}
         onRequestClose={() => {
@@ -24,7 +23,6 @@ const ModalLoginForm = (props) => {
       >
         <LoginForm />
       </Modal>
-    </>
   );
 };
 

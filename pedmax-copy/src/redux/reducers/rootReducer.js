@@ -1,11 +1,12 @@
 import { combineReducers } from "redux";
-import listOfSportsReducer from "./listOfSportsReducer";
-import listOfCountriesReducer from "./listOfCountriesReducer";
-import listOfTournamentsReducer from "./listOfTournamentsReducer";
-import listOfUpcomingMatchesReducer from "./listOfUpcomingMatchesReducer";
-import listOfLiveMatchesReducer from "./listOfLiveMatchesReducer";
+import listOfSportsReducer from "./sportsReducer";
+import listOfCountriesReducer from "./countriesReducer";
+import listOfTournamentsReducer from "./tournamentsReducer";
+import listOfUpcomingMatchesReducer from "./upcomingMatchesListReducer";
+import listOfLiveMatchesReducer from "./liveMatchesReducer";
 import sportIdGetSetReducer from "./sportIdGetSetReducer";
 import upcomingMatchesReducer from "./upcomingMatchesReducer";
+import betsReducer from "./betsReducer";
 
 const rootReducer = combineReducers({
   list_of_sports: listOfSportsReducer,
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   list_of_live_matches: listOfLiveMatchesReducer,
   sport_id_get_set: sportIdGetSetReducer,
   upcoming_matches: upcomingMatchesReducer,
+  bets: betsReducer,
 });
 
 export default rootReducer;

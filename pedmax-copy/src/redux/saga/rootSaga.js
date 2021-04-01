@@ -1,9 +1,9 @@
 import { all } from "redux-saga/effects";
-import watchListOfSports from "./listOfSportsSaga";
-import watchListOfCountries from "./listOfCountriesSaga";
-import watchListOfTournaments from "./listOfTournamentsSaga";
-import watchListOfUpcomingMatches from "./listOfUpcomingMatchesSaga";
-import watchListOfLiveMatches from "./listOfLiveMatchesSaga";
+import watchListOfSports from "./sportsSaga";
+import watchListOfCountries from "./countriesSaga";
+import watchListOfTournaments from "./tournamentsSaga";
+import watchListOfUpcomingMatches from "./upcomingMatchesListSaga";
+import watchListOfLiveMatches from "./liveMatchesSaga";
 import watchUpcomingMatches from './upcomingMatchesSaga';
 
 function* rootSaga() {

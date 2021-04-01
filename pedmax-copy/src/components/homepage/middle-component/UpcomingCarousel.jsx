@@ -33,7 +33,6 @@ const UpcomingCarousel = () => {
   };
 
   return (
-    <>
       <div className={classes.root}>
         <AppBar position="static" color="default">
           <Tabs
@@ -61,7 +60,6 @@ const UpcomingCarousel = () => {
           </Tabs>
         </AppBar>
       </div>
-    </>
   );
 };
 

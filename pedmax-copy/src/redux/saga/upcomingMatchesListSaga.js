@@ -4,7 +4,7 @@ import {
   requestListOfUpcomingMatches,
   requestListOfUpcomingMatchesSuccess,
   requestListOfUpcomingMatchesError,
-} from "../actions/listOfUpcomingMatchesAction";
+} from "../actions/upcomingMatchesListAction";
 
 import { upcomingMatchesListUrl } from "../../utils/urls";
 

@@ -6,7 +6,7 @@ import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchListOfTournaments } from "../../../redux/actions/listOfTournamentsAction";
+import { fetchListOfTournaments } from "../../../redux/actions/tournamentsAction";
 import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -42,40 +42,38 @@ const CountriesList = (props) => {
 
   const classes = useStyles();
   return (
-      <Accordion key={props.sport_id}>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-          onClick={() => {
-            setOpen(!isOpen);
-            if (isOpen)
-              dispatch(
-                fetchListOfTournaments(props.sport_id, props.country_id)
-              );
-          }}
-        >
-          <Typography className={classes.heading}>{props.name}</Typography>
-        </AccordionSummary>
+    <Accordion key={props.sport_id}>
+      <AccordionSummary
+        expandIcon={<ExpandMoreIcon />}
+        aria-controls="panel2a-content"
+        id="panel2a-header"
+        onClick={() => {
+          setOpen(!isOpen);
+          if (isOpen)
+            dispatch(fetchListOfTournaments(props.sport_id, props.country_id));
+        }}
+      >
+        <Typography className={classes.heading}>{props.name}</Typography>
+      </AccordionSummary>
 
-        <AccordionDetails className={classes.details}>
-          {tournamentsLoading ? (
-            <p>Loading... Please Wait</p>
-          ) : (
-            <>
-              {tournamentsData.map((t) => {
-                return (
-                  <NavLink key={t.id} to={`/sports/${props.sport_id}/${t.id}`}>
-                    <div key={t.id}>
-                      <p className={"tournament-names"}>{t.title}</p>
-                    </div>
-                  </NavLink>
-                );
-              })}
-            </>
-          )}
-        </AccordionDetails>
-      </Accordion>
+      <AccordionDetails className={classes.details}>
+        {tournamentsLoading ? (
+          <p>Loading... Please Wait</p>
+        ) : (
+          <>
+            {tournamentsData.map((t) => {
+              return (
+                <NavLink key={t.id} to={`/sports/${props.sport_id}/${t.id}`}>
+                  <div key={t.id}>
+                    <p className={"tournament-names"}>{t.title}</p>
+                  </div>
+                </NavLink>
+              );
+            })}
+          </>
+        )}
+      </AccordionDetails>
+    </Accordion>
   );
 };
 

@@ -1,30 +1,34 @@
-// const initialState = {
-//   id: {
-//     title: leagueName,
-//     status: status,
-//     participantname: titleName,
-//     value: 1,
-//     itsValue: val,
-//     stakes: 10,
-//     return : {10*val}
+const initialState = [];
 
-//   }
-// }
+const betsReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case "SET_BETS":
+      return [
+        ...state,
+        {
+          id: action.id,
+          data: action.data,
+        },
+      ];
 
-// const betsReducer = (state=initialState, action)=>{
-//   switch(action.type){
-//     case "SET_BETS":
-//       return {
-        
-//       }
+    case "REMOVE_BETS":
+      const removeId = state.findIndex((t) => t.id === action.id);
+      const copy = [...state];
+      copy.splice(removeId, 1);
+      return copy;
 
-//     case " REMOVE_BETS":
-//       return {
+    case "EDIT_BETS":
+      const editId = state.findIndex((t) => t.id === action.id);
+      const info = state[editId];
+      info.data.inputVal = action.inputVal;
+      const copyInfo = [...state];
+      copyInfo.splice(editId, 1, info);
+      return copyInfo;
 
-//       }
-    
-//     default: return state;
-//   }
-// }
 
-// export default betsReducer;
+    default:
+      return state;
+  }
+};
+
+export default betsReducer;

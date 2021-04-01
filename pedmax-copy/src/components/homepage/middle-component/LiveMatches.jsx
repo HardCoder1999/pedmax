@@ -6,7 +6,7 @@ import Box from "@material-ui/core/Box";
 import { makeStyles } from "@material-ui/core/styles";
 import { useSelector, useDispatch } from "react-redux";
 import { setLiveSportId } from "../../../redux/actions/sportIdGetSetAction";
-import { fetchListOfLiveMatches } from "../../../redux/actions/listOfLiveMatchesAction";
+import { fetchListOfLiveMatches } from "../../../redux/actions/liveMatchesAction";
 
 function a11yProps(index) {
   return {
@@ -52,58 +52,56 @@ const LiveMatches = () => {
     setValue(newValue);
   };
   return (
-    <>
-      <div className={classes.root}>
-        <AppBar position="static" color="default">
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            indicatorColor="primary"
-            textColor="primary"
-            variant="scrollable"
-            scrollButtons="auto"
-            aria-label="scrollable auto tabs example"
-          >
-            {sportsData.map((t, index) => {
+    <div className={classes.root}>
+      <AppBar position="static" color="default">
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          indicatorColor="primary"
+          textColor="primary"
+          variant="scrollable"
+          scrollButtons="auto"
+          aria-label="scrollable auto tabs example"
+        >
+          {sportsData.map((t, index) => {
+            return (
+              <Tab
+                key={t.id}
+                label={t.name}
+                {...a11yProps(index)}
+                onClick={() => {
+                  dispatch(setLiveSportId(t.id));
+                }}
+              />
+            );
+          })}
+          ;
+        </Tabs>
+      </AppBar>
+
+      <Box
+        display="flex"
+        p={1}
+        bgcolor="background.paper"
+        justifyContent="center"
+      >
+        {dataLoading ? (
+          <p>Loading... Please Wait</p>
+        ) : !liveMatches || liveMatches.length === 0 ? (
+          <>No Live Match available, try other sports</>
+        ) : (
+          <>
+            {liveMatches.map((t) => {
               return (
-                <Tab
-                  key={t.id}
-                  label={t.name}
-                  {...a11yProps(index)}
-                  onClick={() => {
-                    dispatch(setLiveSportId(t.id));
-                  }}
-                />
+                <div key={t.id}>
+                  (<>{console.log(t.id)} </>)
+                </div>
               );
             })}
-            ;
-          </Tabs>
-        </AppBar>
-
-        <Box
-          display="flex"
-          p={1}
-          bgcolor="background.paper"
-          justifyContent="center"
-        >
-          {dataLoading ? (
-            <p>Loading... Please Wait</p>
-          ) : !liveMatches || liveMatches.length === 0 ? (
-            <>No Live Match available, try other sports</>
-          ) : (
-            <>
-              {liveMatches.map((t) => {
-                return (
-                  <div key={t.id}>
-                    (<>{console.log(t.id)} </>)
-                  </div>
-                );
-              })}
-            </>
-          )}
-        </Box>
-      </div>
-    </>
+          </>
+        )}
+      </Box>
+    </div>
   );
 };
 

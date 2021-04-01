@@ -4,7 +4,7 @@ import {
   requestListOfTournaments,
   requestListOfTournamentsSuccess,
   requestListOfTournamentsError,
-} from "../actions/listOfTournamentsAction";
+} from "../actions/tournamentsAction";
 
 import { tournamentListUrl } from '../../utils/urls';
 

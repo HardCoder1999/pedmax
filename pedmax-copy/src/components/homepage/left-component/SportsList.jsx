@@ -6,7 +6,7 @@ import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { fetchListOfCountries } from "../../../redux/actions/listOfCountriesAction";
+import { fetchListOfCountries } from "../../../redux/actions/countriesAction";
 import { useDispatch, useSelector } from "react-redux";
 import CountriesList from "./CountriesList";
 import { NavLink } from "react-router-dom";

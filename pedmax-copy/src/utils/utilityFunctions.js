@@ -21,6 +21,9 @@ function assign1x2(market) {
     1: "-",
     X: "-",
     2: "-",
+    id1: "",
+    id2: "",
+    idX: "",
   };
 
   if (market === null || market === undefined || market.length === 0)
@@ -35,9 +38,19 @@ function assign1x2(market) {
     else {
       for (let t of Object.keys(market.outcomes)) {
         let value = market.outcomes[t].odds;
-        if (market.outcomes[t].name === "X") values["X"] = value;
-        else if (market.outcomes[t].name === "1") values["1"] = value;
-        else if (market.outcomes[t].name === "2") values["2"] = value;
+        let id = market.outcomes[t].uid;
+        if (market.outcomes[t].name === "X"){
+          values["X"] = value;
+          values["idX"] = id;
+        }
+        else if (market.outcomes[t].name === "1") {
+          values["1"] = value;
+          values["id1"] = id;
+        }
+        else if (market.outcomes[t].name === "2") {
+          values["2"] = value;
+          values["id2"] = id;
+        }
       }
     }
   }

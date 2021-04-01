@@ -9,12 +9,10 @@ const UpcomingMatches = () => {
     (state) => state.sport_id_get_set.upcoming_sport_id
   );
   return (
-    <>
-      <Grid container direction="column">
-        <UpcomingCarousel />
-        <UpcomingAccordion sport_id={sport_id} />
-      </Grid>
-    </>
+    <Grid container direction="column">
+      <UpcomingCarousel />
+      <UpcomingAccordion sport_id={sport_id} />
+    </Grid>
   );
 };
 
