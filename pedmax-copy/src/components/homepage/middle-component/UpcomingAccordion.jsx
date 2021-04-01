@@ -48,6 +48,10 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: "20px",
     marginLeft: "-100px",
   },
+
+  header: {
+    
+  }
 }));
 
 const UpcomingAccordion = (props) => {
@@ -91,7 +95,7 @@ const UpcomingAccordion = (props) => {
                       <StyledTableRow>
                         <StyledTableCell></StyledTableCell>
 
-                        <StyledTableCell style={{ color: "black" }}>
+                        <StyledTableCell style={{ paddingRight: "90px", color: "black" }}>
                           <NavLink
                             to={`/sports/${props.sport_id}/${modifiedData[t].id}`}
                           >
@@ -101,14 +105,14 @@ const UpcomingAccordion = (props) => {
 
                         <StyledTableCell
                           align="right"
-                          style={{ color: "black" }}
+                          style={{ color: "black", paddingRight: "65px" }}
                         >
                           1
                         </StyledTableCell>
 
                         <StyledTableCell
                           align="right"
-                          style={{ color: "black" }}
+                          style={{ color: "black", paddingRight: "65px" }}
                         >
                           X
                         </StyledTableCell>

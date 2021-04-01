@@ -11,7 +11,7 @@ import Button from '@material-ui/core/Button';
 
 
 
-// import SingleBet from "./SingleBet";
+import SingleBet from "./SingleBet";
 import { useSelector } from "react-redux";
 
 const BootstrapInput = withStyles((theme) => ({
@@ -77,7 +77,7 @@ const BetArea = () => {
       {data.map((t) => {
         return (
           <div key={t.id}>
-            {/* <SingleBet
+            <SingleBet
               id={t.id}
               participant={t.data.participant}
               title={t.data.title}
@@ -86,7 +86,7 @@ const BetArea = () => {
               inputVal={t.data.inputVal}
               market={t.data.market}
               value={t.data.value}
-            /> */}
+            />
           </div>
         );
       })}
