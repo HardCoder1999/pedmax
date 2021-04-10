@@ -49,9 +49,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "-100px",
   },
 
-  header: {
-    
-  }
+  header: {},
 }));
 
 const UpcomingAccordion = (props) => {
@@ -95,7 +93,9 @@ const UpcomingAccordion = (props) => {
                       <StyledTableRow>
                         <StyledTableCell></StyledTableCell>
 
-                        <StyledTableCell style={{ paddingRight: "90px", color: "black" }}>
+                        <StyledTableCell
+                          style={{ paddingRight: "90px", color: "black" }}
+                        >
                           <NavLink
                             to={`/sports/${props.sport_id}/${modifiedData[t].id}`}
                           >
@@ -142,7 +142,11 @@ const UpcomingAccordion = (props) => {
                                 component="th"
                                 scope="row"
                               >
-                                {x.name}
+                                <NavLink
+                                  to={`/sports/${props.sport_id}/${modifiedData[t].id}/match/${x.id}`}
+                                >
+                                  {x.name}
+                                </NavLink>
                               </StyledTableCell>
 
                               <StyledTableCell
@@ -260,7 +264,11 @@ const UpcomingAccordion = (props) => {
                                 style={{ color: "black" }}
                                 align="right"
                               >
-                                {x.market_counts}+
+                                <NavLink
+                                  to={`/sports/${props.sport_id}/${modifiedData[t].id}/match/${x.id}`}
+                                >
+                                  {x.market_counts}+
+                                </NavLink>
                               </StyledTableCell>
                             </StyledTableRow>
                           </>

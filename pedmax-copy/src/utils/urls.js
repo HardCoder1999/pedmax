@@ -9,3 +9,6 @@ export const upcomingMatchesListUrl =
 
 export const liveMatchesListUrl =
   "https://api.pedmax.com/api/v1/matches?scope=live";
+
+// export const oddsUrl = "https://api.pedmax.com/api/v1/matches/221171";
+export const oddsUrl = "https://api.pedmax.com/api/v1/matches";

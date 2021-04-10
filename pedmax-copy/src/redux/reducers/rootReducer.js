@@ -7,6 +7,7 @@ import listOfLiveMatchesReducer from "./liveMatchesReducer";
 import sportIdGetSetReducer from "./sportIdGetSetReducer";
 import upcomingMatchesReducer from "./upcomingMatchesReducer";
 import betsReducer from "./betsReducer";
+import oddsDataReducer from "./oddsDataReducer";
 
 const rootReducer = combineReducers({
   list_of_sports: listOfSportsReducer,
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   sport_id_get_set: sportIdGetSetReducer,
   upcoming_matches: upcomingMatchesReducer,
   bets: betsReducer,
+  odds_data: oddsDataReducer,
 });
 
 export default rootReducer;

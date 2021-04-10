@@ -5,6 +5,7 @@ import watchListOfTournaments from "./tournamentsSaga";
 import watchListOfUpcomingMatches from "./upcomingMatchesListSaga";
 import watchListOfLiveMatches from "./liveMatchesSaga";
 import watchUpcomingMatches from './upcomingMatchesSaga';
+import watchOddsData from "./oddsDataSaga";
 
 function* rootSaga() {
   yield all([
@@ -14,6 +15,7 @@ function* rootSaga() {
     watchListOfLiveMatches(),
     watchListOfUpcomingMatches(),
     watchUpcomingMatches(),
+    watchOddsData(),
   ]);
 }
 
