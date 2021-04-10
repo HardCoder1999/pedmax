@@ -10,7 +10,6 @@ const LoginForm = () => {
   };
 
   return (
-    <>
       <form onSubmit={handleSubmit}>
         <div>
           <label>
@@ -46,7 +45,6 @@ const LoginForm = () => {
           </Button>
         </div>
       </form>
-    </>
   );
 };
 

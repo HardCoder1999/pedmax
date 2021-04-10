@@ -24,27 +24,27 @@ const Links = () => {
             to="/"
             style={{ paddingLeft: 15, color: "white" }}
           >
-            <img id="" alt="" src={home} width="" height="" />
+            <img id="" alt="" src={home} width="" height="" /> &nbsp;
             Home
           </NavLink>
-        </Grid>
+        </Grid> &nbsp; &nbsp;
 
         <Grid item>
           <NavLink
             to="/sports"
             style={{ paddingLeft: 15, color: "white" }}
           >
-            <img id="" alt="" src={sports} width="" height="" />
+            <img id="" alt="" src={sports} width="" height="" /> &nbsp;
             Sports
           </NavLink>
-        </Grid>
+        </Grid> &nbsp; &nbsp;
 
         <Grid item>
           <NavLink
             to="/live-bets"
             style={{ paddingLeft: 15, color: "white" }}
           >
-            <img id="" alt="" src={bets} width="" height="" />
+            <img id="" alt="" src={bets} width="" height="" /> &nbsp;
             Live Bets
           </NavLink>
         </Grid>

@@ -3,12 +3,13 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import { makeStyles } from "@material-ui/core/styles";
-import PersonalBets from './PersonalBets';
-import BetArea from './BetArea';
+import PersonalBets from "./PersonalBets";
+import BetArea from "./BetArea";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
+    marginLeft: "-40px",
     flexDirection: "column",
     alignItems: "center",
     "& > *": {
@@ -28,20 +29,26 @@ const BetButtons = () => {
             variant="contained"
             aria-label="contained primary button group"
           >
-            <Button color="secondary" onClick={()=>{
-              setToggle(true);
-            }}>Bet Slip</Button>
-            <Button color="primary" onClick={()=>{
-              setToggle(false);
-            }}>My Bets</Button>
+            <Button
+              color="secondary"
+              onClick={() => {
+                setToggle(true);
+              }}
+            >
+              Bet Slip
+            </Button>
+            <Button
+              color="primary"
+              onClick={() => {
+                setToggle(false);
+              }}
+            >
+              My Bets
+            </Button>
           </ButtonGroup>
         </div>
       </Grid>
-      <Grid item>
-        {
-          toggle? (<BetArea />) : (<PersonalBets />)
-        }
-      </Grid>
+      <Grid item>{toggle ? <BetArea /> : <PersonalBets />}</Grid>
     </>
   );
 };
